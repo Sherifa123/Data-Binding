@@ -1,0 +1,90 @@
+<div class="body">
+  <div class="Container">
+    <h1>DATA BINDING</h1>
+    <h2>String Interpolation</h2>
+    <span>We are trying to combining {{ name }}</span>
+    <br /><br /><img [src]="imagepath" width="500px" /> <br />
+    <p [innerText]="text"></p>
+  </div>
+  <hr />
+  <div class="container1">
+    <h2>Event Binding</h2>
+    <input type="text1" (input)="passValueToComponent($event)" />
+    <button (click)="buttonClick()">Click Me!</button>
+  </div>
+  <hr />
+  <div class="container2">
+    <h2>Two Way Binding</h2>
+    <input type="text" [value]="defaultVal" (input)="passedAValue($event)" />
+    <button (click)="buttonClick()">Click Me!</button>
+  </div>
+  <hr />
+  <div>
+    <h2>Disable The Button</h2>
+    <input type="text" [value]="defaultVal1" />
+    <div>{{ defaultVal1 }}</div>
+    <button [disabled]="check(defaultVal1)">Tap To Submit</button>
+  </div>
+
+  <hr />
+  <!-- <div class="container2">
+  <h2>Structural Directives -ngIf</h2>
+  <div class="row">
+    <div class="container3">
+      <button class="btn1" (click)="approve(true)">Approve</button>
+      <button class="btn2" (click)="approve(false)">Reject</button>
+    </div>
+    <div class="container3">
+      <p *ngIf="isApproved">Congratulation! Your Application is Accepted.</p>
+      <p *ngIf="!isApproved">Sorry, Your Application was Rejected.</p>
+    </div>
+  </div>
+</div> 
+<hr />
+<div class="row">
+  <div class="col-md-12">
+    <p *ngFor="let a of alphabets; let i = index">{{ i }}-{{ a }}</p>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-md-12">
+    <input type="text" name="defaultNumber" [value]="defaultNumber" />
+  </div>
+  <div class="col-md-12" [ngSwitch]="defaultNumber">
+    <p *ngSwitchCase="1">car1</p>
+    <p *ngSwitchCase="2">car2</p>
+    <p *ngSwitchCase="3">car3</p>
+    <p *ngSwitchCase="4">car4</p>
+  </div>
+</div>
+
+<!--
+ngIf--used to remove or recreate a portion of HTML element based on an expression 
+ngFor--that it changes the structure of the DOM
+ngSwitch--lets you hide/show HTML elements depending on an expression.
+-->
+
+  <div>
+    <h2>List of Diary Products</h2>
+    <p *ngFor="let a of products; let i = index">
+      {{ i + 1 }}.{{ a.title }} - {{ a.price }}
+    </p>
+    <h4>Enter The Price Of The Product</h4>
+    <input type="text" name="productname" [(ngModel)]="productname" />
+    <button class="btn3" (click)="search(productname)">Search</button>
+    <h2 *ngIf="boolval">The Product's Price is: {{ productprice }}</h2>
+    <p *ngIf="!boolval">Enter the valid product name</p>
+    <div>
+      <h4>Enter the number to get product List</h4>
+      <input type="text" name="productnumber" [(ngModel)]="productnumber" />
+    </div>
+
+    <div [ngSwitch]="productnumber">
+      <p *ngSwitchCase="1">{{ products[0].title }} - {{ products[0].price }}</p>
+      <p *ngSwitchCase="2">{{ products[1].title }} - {{ products[1].price }}</p>
+      <p *ngSwitchCase="3">{{ products[2].title }} - {{ products[2].price }}</p>
+      <p *ngSwitchCase="4">{{ products[3].title }} - {{ products[3].price }}</p>
+    </div>
+  </div>
+</div>
